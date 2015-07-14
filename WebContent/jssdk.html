@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jssdk.html</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+		wx.config({
+    		debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+		    appId: 'wx36e795a9cfda1ca8', // 必填，公众号的唯一标识
+		    timestamp: , // 必填，生成签名的时间戳
+		    nonceStr: '', // 必填，生成签名的随机串
+		    signature: '',// 必填，签名，见附录1
+		    jsApiList: ['onMenuShareTimeline'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+		});
+		wx.ready(function () {
+  		 // 2.2 监听“分享到朋友圈”按钮点击、自定义分享内容及分享结果接口
+		  document.querySelector('#onMenuShareTimeline').onclick = function () {
+		    wx.onMenuShareTimeline({
+		      title: '互联网之子',
+		      link: 'http://movie.douban.com/subject/25785114/',
+		      imgUrl: 'http://img3.douban.com/view/movie_poster_cover/spst/public/p2166127561.jpg',
+		      success: function (res) {
+		        alert('已分享');
+		      },
+		      cancel: function (res) {
+		        alert('已取消');
+		      },
+		    });
+		    alert('已注册获取“分享到朋友圈”状态事件');
+		  };
+		  });
+		  wx.error(function (res) {
+  		  	alert(res.errMsg);
+		  });
+</script>
+</head>
+
+<body>
+	<div>
+		<h3 id="menu-share">分享接口</h3>
+		<span class="desc">获取“分享到朋友圈”按钮点击状态及自定义分享内容接口</span>
+		<button class="btn btn_primary" id="onMenuShareTimeline">onMenuShareTimeline</button>
+	</div>
+</body>
+</html>

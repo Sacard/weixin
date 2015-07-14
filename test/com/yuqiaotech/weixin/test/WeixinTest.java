@@ -17,7 +17,7 @@ public class WeixinTest {
 	private static int agentId = 2;
 
 	public static void main(String[] args) {
-		createMember();
+		createDepartment();
 	}
 
 	// TODO 保存access_token如果过期再重新获取
@@ -113,8 +113,8 @@ public class WeixinTest {
 
 	public static void createDepartment() {
 		String user_define_department = "{"//
-				+ "\"name\":\"测试部门11\","//
-				+ "\"parentid\":\"4\","//
+				+ "\"name\":\"测试部门111\","//
+				+ "\"parentid\":\"5\","//
 				+ "\"order\":\"1\","//
 				+ "}";
 
